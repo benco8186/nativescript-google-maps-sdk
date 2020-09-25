@@ -49,9 +49,9 @@
     "cz-conventional-changelog": "^2.0.0",
     "husky": "^0.14.2",
     "semver": "^5.5.0",
-    "tns-core-modules": "^4.0.0",
-    "tns-platform-declarations": "^4.0.0",
-    "typescript": "^2.3.2",
+    "@nativescript/core": "rc",
+    "tns-platform-declarations": "^6.5.15",
+    "typescript": "~3.9.0",
     "validate-commit-msg": "^2.12.2"
   },
   "config": {

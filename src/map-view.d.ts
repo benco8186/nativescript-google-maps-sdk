@@ -1,8 +1,8 @@
-import { Point, View } from "tns-core-modules/ui/core/view";
-import { Property } from "tns-core-modules/ui/core/properties";
-import { Image } from "tns-core-modules/ui/image";
-import { Color } from "tns-core-modules/color";
-import { EventData } from "tns-core-modules/data/observable";
+import {View } from "@nativescript/core";
+import { Property } from "@nativescript/core";
+import { Image } from "@nativescript/core";
+import { Color } from "@nativescript/core";
+import { EventData } from "@nativescript/core";
 
 export class IndoorLevel {
     public name: string;

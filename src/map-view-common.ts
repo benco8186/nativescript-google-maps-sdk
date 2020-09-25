@@ -4,22 +4,23 @@ import {
     CameraEventData, PositionEventData, Bounds, Style, UISettings, IndoorBuilding, IndoorLevel,
     IndoorLevelActivatedEventData, BuildingFocusedEventData
 } from "./map-view";
-import { Point, View, Template, KeyedTemplate } from "tns-core-modules/ui/core/view";
-import { Image } from "tns-core-modules/ui/image";
-import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
+import { View, Template, KeyedTemplate } from '@nativescript/core';
+import { Image } from "@nativescript/core";
+import { LayoutBase } from "@nativescript/core";
 
-import { Property } from "tns-core-modules/ui/core/properties";
-import { Color } from "tns-core-modules/color";
-import { parseMultipleTemplates, parse } from "tns-core-modules/ui/builder";
-import { eachDescendant } from "tns-core-modules/ui/core/view-base";
-import { ProxyViewContainer } from "tns-core-modules/ui/proxy-view-container";
+import { Property } from "@nativescript/core";
+import { Color } from "@nativescript/core";
+
+import { eachDescendant } from "@nativescript/core";
+import { ProxyViewContainer } from "@nativescript/core";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
+import { Builder } from "@nativescript/core/ui/builder";
 
 function onInfoWindowTemplatesChanged(mapView: MapViewBase) {
     let _infoWindowTemplates = new Array<KeyedTemplate>();
 
     if (mapView.infoWindowTemplates && typeof mapView.infoWindowTemplates === "string") {
-        _infoWindowTemplates = _infoWindowTemplates.concat(parseMultipleTemplates(mapView.infoWindowTemplates));
+        _infoWindowTemplates = _infoWindowTemplates.concat(Builder.parseMultipleTemplates(mapView.infoWindowTemplates));
     } else if (mapView.infoWindowTemplates) {
         _infoWindowTemplates = _infoWindowTemplates.concat(<KeyedTemplate[]>mapView.infoWindowTemplates);
     }
@@ -159,7 +160,7 @@ export abstract class MapViewBase extends View implements MapView {
         key: "",
         createView: () => {
             if (this.infoWindowTemplate) {
-                return parse(this.infoWindowTemplate, this);
+                return Builder.parse(this.infoWindowTemplate, this);
             }
             return undefined;
         }

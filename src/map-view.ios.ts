@@ -5,11 +5,10 @@ import {
     longitudeProperty, bearingProperty, zoomProperty,
     tiltProperty, StyleBase, UISettingsBase, getColorHue
 } from "./map-view-common";
-import { Color } from "tns-core-modules/color";
-import * as imageSource from 'tns-core-modules/image-source';
-import { Point } from "tns-core-modules/ui/core/view";
-import { Image } from "tns-core-modules/ui/image";
-import { GC, layout } from "utils/utils"
+import { Color } from "@nativescript/core";
+import { Image, ImageSource } from "@nativescript/core";
+import { GC, layout } from "@nativescript/core/utils";
+
 
 export * from "./map-view-common";
 
@@ -767,7 +766,7 @@ export class Marker extends MarkerBase {
     set icon(value: Image | string) {
         if (typeof value === 'string') {
             var tempIcon = new Image();
-            tempIcon.imageSource = imageSource.fromResource(String(value));
+            tempIcon.imageSource = ImageSource.fromResourceSync(String(value));
             value = tempIcon;
         }
         this._icon = value;
